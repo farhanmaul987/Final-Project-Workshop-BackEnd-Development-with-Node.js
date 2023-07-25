@@ -28,7 +28,7 @@ const register = async (req, res) => {
             }
         )
 
-        return res.status(201).json({
+        res.status(201).json({
             message: 'User berhasil ditambahkan'
         })
     } catch (error) {
@@ -60,7 +60,7 @@ const login = async (req, res) => {
                 expiresIn: '1h',
             })
 
-        return res.status(200).json({
+        res.status(200).json({
             message: 'Berhasil login',
             token: token,
             user: {
@@ -69,7 +69,7 @@ const login = async (req, res) => {
             }
         })
     } catch (error) {
-        return res.status(500).json(error500)
+        res.status(500).json(error500)
     }
 }
 
@@ -81,7 +81,7 @@ const view = async (req, res) => {
         email: user.email
     }
 
-    return res.status(200).json(data);
+    res.status(200).json(data);
 }
 
 const update = async (req, res) => {
@@ -107,15 +107,11 @@ const update = async (req, res) => {
             password: hashed
         })
 
-        return res.status(200).json({
+        res.status(200).json({
             message: 'User berhasil diubah',
-            user: {
-                username: user.username,
-                email: user.email
-            }
         })
     } catch (error) {
-        return res.status(500).json(error500)
+        res.status(500).json(error500)
     }
 }
 
@@ -125,11 +121,11 @@ const del = async (req, res) => {
     try {
         await s_user.del(data)
 
-        return res.status(200).json({
+        res.status(200).json({
             message: 'User berhasil dihapus'
         })
     } catch (error) {
-        return res.status(500).json(error500)
+        res.status(500).json(error500)
     }
 
 }
