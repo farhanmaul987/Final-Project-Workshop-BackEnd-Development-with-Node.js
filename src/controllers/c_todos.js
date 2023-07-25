@@ -70,7 +70,6 @@ const create = async (req, res) => {
     } catch (error) {
         res.status(500).json(error500)
     }
-
 }
 
 const update = async (req, res) => {
@@ -98,7 +97,6 @@ const update = async (req, res) => {
     } catch (error) {
         res.status(500).json(error500)
     }
-
 }
 
 const del = async (req, res) => {
